@@ -1,1 +1,5 @@
 @import 'tailwindcss';
+
+@theme {
+  --font-primary: 'Special Gothic Expanded One', sans-serif;
+}

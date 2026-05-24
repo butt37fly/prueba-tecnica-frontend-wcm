@@ -31,8 +31,8 @@ const toggleMenu = () => {
   position: fixed;
   transform: translateY(0%);
   transition: 0.3s;
-  width: 100dvw;
   z-index: 100;
+  width: 100%;
 }
 
 .c-sidebar[data-is-open='true'] {
@@ -46,6 +46,7 @@ const toggleMenu = () => {
 .c-sidebar__button {
   background-color: var(--color-white);
   border-radius: 100px 100px 0 0;
+  cursor: pointer;
   left: 0;
   margin: auto;
   padding: calc(var(--spacing) * 4) calc(var(--spacing) * 2);
@@ -53,6 +54,7 @@ const toggleMenu = () => {
   right: 0;
   top: -50px;
   width: 64px;
+  z-index: -1;
 }
 
 @media (min-width: 640px) {

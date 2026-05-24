@@ -43,6 +43,7 @@ const props = defineProps({
   border-radius: var(--radius-sm);
   border: 1px solid var(--accent-color);
   color: var(--text-color);
+  cursor: pointer;
   font-weight: var(--font-weight-semibold);
   padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
   transition: 0.3s;

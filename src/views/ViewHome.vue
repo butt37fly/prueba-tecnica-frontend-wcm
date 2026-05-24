@@ -4,7 +4,7 @@ import NewsContainer from '@/components/NewsContainer.vue'
 </script>
 
 <template>
-  <main class="flex w-screen flex-col overflow-x-hidden">
+  <main class="mt-25 flex w-screen flex-col overflow-x-hidden">
     <BannerContainer />
     <NewsContainer />
   </main>

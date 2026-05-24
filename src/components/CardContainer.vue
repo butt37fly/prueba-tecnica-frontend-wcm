@@ -1,24 +1,16 @@
 <script setup>
+import { useCapitalize } from '@/composables/useCapitalize'
+
 const props = defineProps({
-  id: {
-    type: Number,
-    required: true,
-  },
-  title: {
-    type: String,
-    default: '',
-  },
-  body: {
-    type: String,
-    default: '',
-  },
+  post: Object,
 })
 </script>
 
 <template>
-  <article class="c-card w-full flex flex-col items-start p-4 gap-2" :data-id="props.id">
-    <h3 class="font-semibold text-lg">{{ props.title }}</h3>
-    <p>{{ props.body }}</p>
+  <article class="c-card flex w-full flex-col items-start gap-2 p-4" :data-id="props.post.id">
+    <img :src="props.post.image" :alt="props.post.title" class="aspect-video rounded-sm" />
+    <h3 class="text-lg font-semibold">{{ useCapitalize(props.post.title) }}</h3>
+    <p>{{ useCapitalize(props.post.body) }}</p>
   </article>
 </template>
 
