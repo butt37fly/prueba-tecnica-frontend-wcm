@@ -10,7 +10,7 @@ const content = useContentStore().state.banner
     class="c-banner flex aspect-video max-h-150 w-full items-center justify-center p-4"
     :style="`background-image: url('${content.background}')`"
   >
-    <div class="flex flex-col items-center justify-center gap-2">
+    <div class="m-auto flex max-w-285 flex-col items-center justify-center gap-2">
       <h1 class="text-center text-2xl font-bold text-white uppercase sm:text-4xl">
         {{ content.title }}
       </h1>
@@ -21,8 +21,8 @@ const content = useContentStore().state.banner
 
 <style scoped>
 .c-banner {
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
 </style>
