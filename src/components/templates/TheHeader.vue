@@ -1,6 +1,8 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { useContentStore } from '@/stores/content'
+
+const isOpen = ref(false)
 
 const content = useContentStore().state.site
 const nav = [
@@ -18,20 +20,9 @@ const nav = [
   },
 ]
 
-const isNavOpen = ref(null)
-const emit = defineEmits(['openSidebar'])
-
 const toggleMenu = () => {
-  isNavOpen.value = isNavOpen.value ? false : true
+  isOpen.value = isOpen.value ? false : true
 }
-
-const openSidebar = () => {
-  emit('eventoPersonalizado', true)
-}
-
-onMounted(() => {
-  isNavOpen.value = false
-})
 </script>
 
 <template>
@@ -41,11 +32,8 @@ onMounted(() => {
         <img v-if="content.logo !== ''" :src="content.logo" class="size-25 object-contain" />
         <span v-else class="font-bold uppercase">Logo here</span>
       </div>
-      <nav class="c-nav relative flex flex-row items-center" :data-nav-open="isNavOpen">
-        <button class="size-10 sm:hidden" @click="openSidebar">
-          <i class="fa-solid fa-pen text-[25px]"></i>
-        </button>
 
+      <nav class="c-nav relative flex flex-row items-center" :data-nav-open="isOpen">
         <button class="size-10 sm:hidden" @click="toggleMenu">
           <i class="fa-solid fa-bars text-[25px]"></i>
         </button>
@@ -65,6 +53,7 @@ onMounted(() => {
     </section>
   </header>
 </template>
+
 <style scoped>
 .c-nav[data-nav-open='true'] .c-nav__list {
   display: flex;
@@ -86,8 +75,8 @@ onMounted(() => {
 @media (min-width: 640px) {
   .c-nav__list {
     display: flex;
-    position: static;
     flex-direction: row;
+    position: static;
   }
 
   .c-nav__item {
