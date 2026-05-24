@@ -1,11 +1,12 @@
-<script setup></script>
+<script setup>
+import TheFooter from './components/templates/TheFooter.vue'
+import TheHeader from './components/templates/TheHeader.vue'
+</script>
 
 <template>
-  <h1 class="text-danger-300 text-lg text-bold">You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <TheHeader />
+  <RouterView />
+  <TheFooter />
 </template>
 
 <style scoped></style>
