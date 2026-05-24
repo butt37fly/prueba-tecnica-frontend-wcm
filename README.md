@@ -81,3 +81,7 @@ pnpm build
 pnpm lint
 
 ```
+
+## Tecnologías usadas
+
+El proyecto fue desarrollado con VueJS para el frontend, Pinia + localStorage para el manejo de estados y persistencia de la información, Tailwindcss + css3 para la estilización de los elementos.
