@@ -1,7 +1,8 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useContentStore } from '@/stores/content'
 
-const logo = ref(null)
+const content = useContentStore().state.site
 const nav = [
   {
     text: 'Inicio',
@@ -18,10 +19,14 @@ const nav = [
 ]
 
 const isNavOpen = ref(null)
+const emit = defineEmits(['openSidebar'])
 
 const toggleMenu = () => {
   isNavOpen.value = isNavOpen.value ? false : true
-  console.log(isNavOpen.value)
+}
+
+const openSidebar = () => {
+  emit('eventoPersonalizado', true)
 }
 
 onMounted(() => {
@@ -31,22 +36,27 @@ onMounted(() => {
 
 <template>
   <header class="w-screen">
-    <section class="max-w-285 m-auto flex flex-row justify-between p-3">
-      <div class="flex justify-start items-center">
-        <img v-if="logo !== null" src="" alt="" />
-        <span v-else class="uppercase font-bold">Logo here</span>
+    <section class="m-auto flex max-w-285 flex-row justify-between p-3">
+      <div class="flex items-center justify-start">
+        <img v-if="content.logo !== ''" :src="content.logo" class="size-25 object-contain" />
+        <span v-else class="font-bold uppercase">Logo here</span>
       </div>
-      <nav class="c-nav relative flex flex-col" :data-nav-open="isNavOpen">
-        <button class="c-nav__button size-10 sm:hidden" @click="toggleMenu">
+      <nav class="c-nav relative flex flex-row items-center" :data-nav-open="isNavOpen">
+        <button class="size-10 sm:hidden" @click="openSidebar">
+          <i class="fa-solid fa-pen text-[25px]"></i>
+        </button>
+
+        <button class="size-10 sm:hidden" @click="toggleMenu">
           <i class="fa-solid fa-bars text-[25px]"></i>
         </button>
+
         <ul class="c-nav__list flex flex-col justify-end sm:flex-row sm:gap-1">
           <li
             v-for="(item, index) in nav"
             :key="index"
             class="c-nav__item w-full p-3 text-right sm:p-1"
           >
-            <RouterLink :to="item.path" class="w-full block" active-class="current"
+            <RouterLink :to="item.path" class="block w-full" active-class="current"
               >{{ item.text }}
             </RouterLink>
           </li>

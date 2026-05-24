@@ -1,36 +1,20 @@
 <script setup>
 import ButtonItem from './ButtonItem.vue'
+import { useContentStore } from '@/stores/content'
 
-const props = defineProps({
-  imageURL: {
-    type: String,
-    default: '',
-  },
-  title: {
-    type: String,
-    default: 'My Banner',
-  },
-  buttonLink: {
-    type: String,
-    default: '',
-  },
-  buttonText: {
-    type: String,
-    default: 'My Button',
-  },
-})
+const content = useContentStore().state.banner
 </script>
 
 <template>
   <section
-    class="c-banner w-full max-h-150 flex justify-center items-center aspect-video p-4"
-    :style="`background-image: url('${props.imageURL}')`"
+    class="c-banner flex aspect-video max-h-150 w-full items-center justify-center p-4"
+    :style="`background-image: url('${content.background}')`"
   >
-    <div class="flex flex-col gap-2 justify-center items-center">
-      <h1 class="text-2xl sm:text-4xl text-white text-center font-bold uppercase">
-        {{ props.title }}
+    <div class="flex flex-col items-center justify-center gap-2">
+      <h1 class="text-center text-2xl font-bold text-white uppercase sm:text-4xl">
+        {{ content.title }}
       </h1>
-      <ButtonItem :title="props.buttonText" :link="props.buttonLink" />
+      <ButtonItem :title="content.buttonText" :link="content.buttonLink" />
     </div>
   </section>
 </template>
