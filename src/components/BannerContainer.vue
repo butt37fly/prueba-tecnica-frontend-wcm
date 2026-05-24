@@ -23,7 +23,7 @@ const props = defineProps({
 
 <template>
   <section
-    class="c-banner w-full flex justify-center items-center aspect-video p-4"
+    class="c-banner w-full max-h-150 flex justify-center items-center aspect-video p-4"
     :style="`background-image: url('${props.imageURL}')`"
   >
     <div class="flex flex-col gap-2 justify-center items-center">
