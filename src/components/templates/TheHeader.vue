@@ -55,7 +55,7 @@ onMounted(() => {
     </section>
   </header>
 </template>
-<style lang="postcss" scoped>
+<style scoped>
 .c-nav[data-nav-open='true'] .c-nav__list {
   display: flex;
 }
