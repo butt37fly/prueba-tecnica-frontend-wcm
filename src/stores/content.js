@@ -5,11 +5,11 @@ export const useContentStore = defineStore('content', () => {
   const token = 'siteContent'
   const state = reactive({
     site: {
-      logo: '/public/img/logo.webp',
+      logo: '/img/logo.webp',
     },
     banner: {
       title: 'Hello World!',
-      background: '/public/img/sample.webp',
+      background: '/img/sample.webp',
       buttonText: 'Ver más',
       buttonLink: '#',
     },
