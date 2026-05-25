@@ -74,6 +74,14 @@ pnpm build
 
 ```
 
+### Sirve localmente la carpeta dist
+
+```sh
+
+pnpm preview
+
+```
+
 ### Ejecutar [ESLint](https://eslint.org/)
 
 ```sh
